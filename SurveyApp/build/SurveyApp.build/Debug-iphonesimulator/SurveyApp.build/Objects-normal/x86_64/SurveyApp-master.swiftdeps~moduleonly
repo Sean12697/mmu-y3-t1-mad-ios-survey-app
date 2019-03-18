@@ -1,0 +1,10 @@
+version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+options: "a325a891ba3ba707e0b40328ebdb9392"
+build_time: [1548705525, 767240000]
+inputs:
+  "/Users/mhyadmin/Desktop/SurveyApp/SurveyApp/ViewController.swift": [1548692674, 0]
+  "/Users/mhyadmin/Desktop/SurveyApp/SurveyApp/SurveyViewController.swift": [1548705525, 0]
+  "/Users/mhyadmin/Desktop/SurveyApp/SurveyApp/AppDelegate.swift": [1548692674, 0]
+  "/Users/mhyadmin/Desktop/SurveyApp/build/SurveyApp.build/Debug-iphonesimulator/SurveyApp.build/DerivedSources/CoreDataGenerated/SurveyApp/Data+CoreDataClass.swift": [9223372036, 854775807]
+  "/Users/mhyadmin/Desktop/SurveyApp/build/SurveyApp.build/Debug-iphonesimulator/SurveyApp.build/DerivedSources/CoreDataGenerated/SurveyApp/Data+CoreDataProperties.swift": [9223372036, 854775807]
+  "/Users/mhyadmin/Desktop/SurveyApp/build/SurveyApp.build/Debug-iphonesimulator/SurveyApp.build/DerivedSources/CoreDataGenerated/SurveyApp/SurveyApp+CoreDataModel.swift": [9223372036, 854775807]
