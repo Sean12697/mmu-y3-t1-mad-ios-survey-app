@@ -11,6 +11,7 @@ import UIKit
 class q2bViewController: UIViewController {
 
     var data:dataStruct?
+    @IBOutlet weak var slider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +19,13 @@ class q2bViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func sliderChange(_ sender: UISlider) {
+        sender.setValue(sender.value.rounded(), animated: false)
+    }
+    
+    
     @IBAction func btnNext(_ sender: UIButton) {
-        // Stuff
+        data?.q2b = Int(slider.value);
         self.performSegue(withIdentifier: "q2b-q3", sender: self)
     }
     

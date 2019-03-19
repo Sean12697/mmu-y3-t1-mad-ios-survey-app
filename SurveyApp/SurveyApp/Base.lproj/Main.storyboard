@@ -148,36 +148,56 @@
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                 <state key="normal" title="Work" image="work"/>
                                 <state key="selected" image="work_selected"/>
+                                <connections>
+                                    <action selector="btnClick:" destination="ApH-So-Mlo" eventType="touchUpInside" id="Slf-sd-oh9"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QN-JG-ig6">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QN-JG-ig6">
                                 <rect key="frame" x="280" y="348" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Games" image="gaming"/>
                                 <state key="selected" image="gaming_selected"/>
+                                <connections>
+                                    <action selector="btnClick:" destination="ApH-So-Mlo" eventType="touchUpInside" id="zil-Bt-FZn"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-bz-g1q">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-bz-g1q">
                                 <rect key="frame" x="476" y="348" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Internet" image="internet"/>
                                 <state key="selected" image="internet_selected"/>
+                                <connections>
+                                    <action selector="btnClick:" destination="ApH-So-Mlo" eventType="touchUpInside" id="9eX-xY-5RT"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRa-px-bSL">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRa-px-bSL">
                                 <rect key="frame" x="800" y="348" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Other" image="other"/>
                                 <state key="selected" image="other_selected"/>
+                                <connections>
+                                    <action selector="btnClick:" destination="ApH-So-Mlo" eventType="touchUpInside" id="h8S-Q8-etW"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYk-FP-PGy">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYk-FP-PGy">
                                 <rect key="frame" x="623" y="348" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Social" image="social-media"/>
                                 <state key="selected" image="social-media_selected"/>
+                                <connections>
+                                    <action selector="btnClick:" destination="ApH-So-Mlo" eventType="touchUpInside" id="VHM-OK-3bf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="223-dP-Ro4"/>
                     </view>
                     <connections>
+                        <outlet property="btnGaming" destination="4QN-JG-ig6" id="D7a-6B-gwF"/>
+                        <outlet property="btnInternet" destination="yuF-bz-g1q" id="bcs-5S-i0A"/>
+                        <outlet property="btnOther" destination="zRa-px-bSL" id="csa-M5-zXN"/>
+                        <outlet property="btnSocial" destination="UYk-FP-PGy" id="uCj-W6-FoH"/>
+                        <outlet property="btnWork" destination="9RN-zI-j1s" id="OSP-NH-U7d"/>
                         <segue destination="PjS-gw-smO" kind="show" identifier="q2a-q3" id="Avj-Ba-ceW"/>
                     </connections>
                 </viewController>
@@ -348,6 +368,7 @@
                         <viewLayoutGuide key="safeArea" id="Gff-Aj-Wg7"/>
                     </view>
                     <connections>
+                        <outlet property="slider" destination="Yf6-Ao-GTB" id="AZd-oe-36E"/>
                         <segue destination="PjS-gw-smO" kind="show" identifier="q2b-q3" id="aNQ-bQ-47s"/>
                     </connections>
                 </viewController>
@@ -385,6 +406,6 @@
         <image name="work_selected" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aNQ-bQ-47s"/>
+        <segue reference="Avj-Ba-ceW"/>
     </inferredMetricsTieBreakers>
 </document>

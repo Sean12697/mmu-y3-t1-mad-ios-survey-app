@@ -11,11 +11,45 @@ import UIKit
 class q2aViewController: UIViewController {
 
     var data:dataStruct?
+    @IBOutlet weak var btnWork: UIButton!
+    @IBOutlet weak var btnGaming: UIButton!
+    @IBOutlet weak var btnInternet: UIButton!
+    @IBOutlet weak var btnSocial: UIButton!
+    @IBOutlet weak var btnOther: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func btnClick(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            data?.q2a = "Work";
+            unhighlightAllExecept(btnWork);
+        case 1:
+            data?.q2a = "Gaming";
+            unhighlightAllExecept(btnGaming);
+        case 2:
+            data?.q2a = "Internet";
+            unhighlightAllExecept(btnInternet);
+        case 3:
+            data?.q2a = "Social";
+            unhighlightAllExecept(btnSocial);
+        case 4:
+            data?.q2a = "Other";
+            unhighlightAllExecept(btnOther);
+        default: print("Selection Error")
+        }
+    }
+    
+    func unhighlightAllExecept(_ execept: UIButton) {
+        btnWork.isHighlighted = false;
+        btnGaming.isHighlighted = false;
+        btnInternet.isHighlighted = false;
+        btnSocial.isHighlighted = false;
+        btnOther.isHighlighted = false;
+        execept.isHighlighted = true;
     }
     
     @IBAction func btnNext(_ sender: UIButton) {
