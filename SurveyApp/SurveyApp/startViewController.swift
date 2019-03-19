@@ -10,7 +10,7 @@ import UIKit
 
 class startViewController: UIViewController {
 
-    var data:dataStruct?
+    var data:dataStruct? = dataStruct();
     @IBOutlet weak var txtID: UITextField!
     @IBOutlet weak var date: UIDatePicker!
     

@@ -16,12 +16,10 @@ class endViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(data?.id ?? "E")
-        
         do {
-        let jsonData = try JSONEncoder().encode(data)
-        let jsonString = String(data: jsonData, encoding: .utf8)!
-        print(jsonString)
+            let jsonData = try JSONEncoder().encode([data])
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            print(jsonString)
         } catch { print(error) }
             
         // Do any additional setup after loading the view.

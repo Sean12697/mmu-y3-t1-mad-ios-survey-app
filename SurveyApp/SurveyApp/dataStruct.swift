@@ -9,10 +9,10 @@
 import Foundation
 
 struct dataStruct : Codable {
-    var id:String?
-    var dob:Date?
-    var q1:Bool?
-    var q2a:String?
-    var q2b:Int?
-    var q3:Bool?
+    var id:String? = "12345";
+    var dob:Date? = Date();
+    var q1:Bool? = true;
+    var q2a:String? = "NaN";
+    var q2b:Int? = 2;
+    var q3:Bool? = true;
 }
