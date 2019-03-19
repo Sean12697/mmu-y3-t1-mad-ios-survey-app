@@ -12,10 +12,10 @@ class q2bViewController: UIViewController {
 
     var data:dataStruct?
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var btnNext: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     

@@ -195,6 +195,7 @@
                     <connections>
                         <outlet property="btnGaming" destination="4QN-JG-ig6" id="D7a-6B-gwF"/>
                         <outlet property="btnInternet" destination="yuF-bz-g1q" id="bcs-5S-i0A"/>
+                        <outlet property="btnNext" destination="rR5-BM-vyi" id="ZcJ-e9-eYd"/>
                         <outlet property="btnOther" destination="zRa-px-bSL" id="csa-M5-zXN"/>
                         <outlet property="btnSocial" destination="UYk-FP-PGy" id="uCj-W6-FoH"/>
                         <outlet property="btnWork" destination="9RN-zI-j1s" id="OSP-NH-U7d"/>
@@ -282,23 +283,55 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PcZ-ht-7LD">
-                                <rect key="frame" x="378" y="642" width="268" height="30"/>
+                                <rect key="frame" x="329" y="660" width="268" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQV-bo-MV3">
+                                <rect key="frame" x="619" y="660" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Enter"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxW-Cr-YVn">
+                                <rect key="frame" x="468" y="433" width="89" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <state key="normal" title="Finish"/>
+                                <connections>
+                                    <segue destination="rqI-Gq-mxU" kind="unwind" unwindAction="rewindWithUnwindSegue:" id="I4j-PQ-yT1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="m6n-Sj-XIu"/>
                     </view>
                     <connections>
+                        <outlet property="txtPassword" destination="PcZ-ht-7LD" id="C7N-pj-PrY"/>
                         <outlet property="txtTest" destination="XHl-fa-sv8" id="dJn-pg-e01"/>
+                        <segue destination="gRO-gm-jaY" kind="show" identifier="end-stats" id="WPQ-aM-6gI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qo2-ge-uO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rqI-Gq-mxU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2871.6796875" y="-100"/>
+        </scene>
+        <!--Stats View Controller-->
+        <scene sceneID="0Bj-gY-cFh">
+            <objects>
+                <viewController id="gRO-gm-jaY" customClass="statsViewController" customModule="SurveyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w3C-wL-xTc">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Csj-Xh-7ZB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gFs-9T-MRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2872" y="652"/>
         </scene>
         <!--2b View Controller-->
         <scene sceneID="xiR-Pg-Vts">
@@ -368,6 +401,7 @@
                         <viewLayoutGuide key="safeArea" id="Gff-Aj-Wg7"/>
                     </view>
                     <connections>
+                        <outlet property="btnNext" destination="BLP-q8-K5F" id="BN4-5c-yrB"/>
                         <outlet property="slider" destination="Yf6-Ao-GTB" id="AZd-oe-36E"/>
                         <segue destination="PjS-gw-smO" kind="show" identifier="q2b-q3" id="aNQ-bQ-47s"/>
                     </connections>
@@ -406,6 +440,6 @@
         <image name="work_selected" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Avj-Ba-ceW"/>
+        <segue reference="aNQ-bQ-47s"/>
     </inferredMetricsTieBreakers>
 </document>

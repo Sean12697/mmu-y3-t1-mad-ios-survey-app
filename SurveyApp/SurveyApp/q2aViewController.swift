@@ -16,13 +16,16 @@ class q2aViewController: UIViewController {
     @IBOutlet weak var btnInternet: UIButton!
     @IBOutlet weak var btnSocial: UIButton!
     @IBOutlet weak var btnOther: UIButton!
+    @IBOutlet weak var btnNext: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnNext.isEnabled = false;
         // Do any additional setup after loading the view.
     }
     
     @IBAction func btnClick(_ sender: UIButton) {
+        btnNext.isEnabled = true;
         switch sender.tag {
         case 0:
             data?.q2a = "Work";

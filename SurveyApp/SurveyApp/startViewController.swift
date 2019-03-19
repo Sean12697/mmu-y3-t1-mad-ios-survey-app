@@ -31,6 +31,10 @@ class startViewController: UIViewController {
         destination.data = self.data;
     }
     
+    @IBAction func rewind(unwindSegue: UIStoryboardSegue) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 

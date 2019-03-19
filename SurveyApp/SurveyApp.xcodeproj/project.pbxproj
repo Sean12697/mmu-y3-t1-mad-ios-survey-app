@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D71D4872241524700E27EDE /* statsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D71D4862241524700E27EDE /* statsViewController.swift */; };
 		1DC88F0222410F6900385253 /* q3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC88F0122410F6900385253 /* q3ViewController.swift */; };
 		1DC88F04224116DE00385253 /* endViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC88F03224116DE00385253 /* endViewController.swift */; };
 		1DC88F0622411F6800385253 /* dataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC88F0522411F6800385253 /* dataStruct.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D71D4862241524700E27EDE /* statsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statsViewController.swift; sourceTree = "<group>"; };
 		1DC88F0122410F6900385253 /* q3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q3ViewController.swift; sourceTree = "<group>"; };
 		1DC88F03224116DE00385253 /* endViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endViewController.swift; sourceTree = "<group>"; };
 		1DC88F0522411F6800385253 /* dataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataStruct.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				1DC88F072241206F00385253 /* q2bViewController.swift */,
 				1DC88F092241208900385253 /* q1ViewController.swift */,
 				1DC88F0B224120B700385253 /* startViewController.swift */,
+				1D71D4862241524700E27EDE /* statsViewController.swift */,
 			);
 			path = SurveyApp;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				1DC88F0622411F6800385253 /* dataStruct.swift in Sources */,
 				1DC88F0222410F6900385253 /* q3ViewController.swift in Sources */,
 				CE66801E21FF67070074CC94 /* SurveyViewController.swift in Sources */,
+				1D71D4872241524700E27EDE /* statsViewController.swift in Sources */,
 				1DD8F49B223FF5A30073AD88 /* q2aViewController.swift in Sources */,
 				1DC88F0C224120B700385253 /* startViewController.swift in Sources */,
 				1DC88F082241206F00385253 /* q2bViewController.swift in Sources */,

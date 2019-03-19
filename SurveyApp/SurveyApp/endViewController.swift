@@ -12,6 +12,7 @@ class endViewController: UIViewController {
     
     var data:dataStruct?
     @IBOutlet weak var txtTest: UILabel!
+    @IBOutlet weak var txtPassword: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,21 @@ class endViewController: UIViewController {
             
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func btnClick(_ sender: UIButton) {
+        if (txtPassword.text == "Password1") {
+            self.performSegue(withIdentifier: "end-stats", sender: self);
+        } else {
+            // Invalid input
+        }
+    }
+    
+    
+    
+//    override func prepare(for segue:UIStoryboardSegue, sender: Any?){
+//        guard let destination = segue.destination as? statsViewController else {return}
+//        // destination.data = self.data
+//    }
     
 
     /*
