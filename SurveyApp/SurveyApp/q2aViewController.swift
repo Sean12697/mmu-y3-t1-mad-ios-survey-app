@@ -26,30 +26,30 @@ class q2aViewController: UIViewController {
         switch sender.tag {
         case 0:
             data?.q2a = "Work";
-            unhighlightAllExecept(btnWork);
+            selectAllExecept(btnWork);
         case 1:
             data?.q2a = "Gaming";
-            unhighlightAllExecept(btnGaming);
+            selectAllExecept(btnGaming);
         case 2:
             data?.q2a = "Internet";
-            unhighlightAllExecept(btnInternet);
+            selectAllExecept(btnInternet);
         case 3:
             data?.q2a = "Social";
-            unhighlightAllExecept(btnSocial);
+            selectAllExecept(btnSocial);
         case 4:
             data?.q2a = "Other";
-            unhighlightAllExecept(btnOther);
+            selectAllExecept(btnOther);
         default: print("Selection Error")
         }
     }
     
-    func unhighlightAllExecept(_ execept: UIButton) {
-        btnWork.isHighlighted = false;
-        btnGaming.isHighlighted = false;
-        btnInternet.isHighlighted = false;
-        btnSocial.isHighlighted = false;
-        btnOther.isHighlighted = false;
-        execept.isHighlighted = true;
+    func selectAllExecept(_ execept: UIButton) {
+        btnWork.isSelected = false;
+        btnGaming.isSelected = false;
+        btnInternet.isSelected = false;
+        btnSocial.isSelected = false;
+        btnOther.isSelected = false;
+        execept.isSelected = true;
     }
     
     @IBAction func btnNext(_ sender: UIButton) {
