@@ -1,14 +1,14 @@
 //
-//  q2aViewController.swift
+//  q2bViewController.swift
 //  SurveyApp
 //
-//  Created by Sean O'mahoney on 18/03/2019.
+//  Created by Sean O'mahoney on 19/03/2019.
 //  Copyright © 2019 Yap Moi Hoon. All rights reserved.
 //
 
 import UIKit
 
-class q2aViewController: UIViewController {
+class q2bViewController: UIViewController {
 
     var data:dataStruct?
     
@@ -27,6 +27,7 @@ class q2aViewController: UIViewController {
         guard let destination = segue.destination as? q3ViewController else {return}
         destination.data = self.data;
     }
+    
 
     /*
     // MARK: - Navigation

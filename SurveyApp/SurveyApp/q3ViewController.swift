@@ -1,16 +1,27 @@
 //
-//  q2aViewController.swift
+//  q3ViewController.swift
 //  SurveyApp
 //
-//  Created by Sean O'mahoney on 18/03/2019.
+//  Created by Sean O'mahoney on 19/03/2019.
 //  Copyright © 2019 Yap Moi Hoon. All rights reserved.
 //
 
 import UIKit
 
-class q2aViewController: UIViewController {
+class q3ViewController: UIViewController {
 
     var data:dataStruct?
+    
+    @IBAction func btnClick(_ sender: UIButton) {
+        
+        switch sender.tag {
+            case 0: data?.q3=false;
+            case 1: data?.q3=true;
+            default: print("no selection")
+        }
+        
+        self.performSegue(withIdentifier: "q3-end", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,14 +29,9 @@ class q2aViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func btnNext(_ sender: UIButton) {
-        // Stuff
-        self.performSegue(withIdentifier: "q2a-q3", sender: self)
-    }
-    
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
-        guard let destination = segue.destination as? q3ViewController else {return}
-        destination.data = self.data;
+        guard let destination = segue.destination as? endViewController else {return}
+        destination.data = self.data
     }
 
     /*

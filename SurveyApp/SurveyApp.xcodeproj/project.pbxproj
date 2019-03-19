@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DC88F0222410F6900385253 /* q3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC88F0122410F6900385253 /* q3ViewController.swift */; };
+		1DC88F04224116DE00385253 /* endViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC88F03224116DE00385253 /* endViewController.swift */; };
+		1DC88F0622411F6800385253 /* dataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC88F0522411F6800385253 /* dataStruct.swift */; };
+		1DC88F082241206F00385253 /* q2bViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC88F072241206F00385253 /* q2bViewController.swift */; };
+		1DC88F0A2241208900385253 /* q1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC88F092241208900385253 /* q1ViewController.swift */; };
+		1DC88F0C224120B700385253 /* startViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC88F0B224120B700385253 /* startViewController.swift */; };
 		1DD8F49B223FF5A30073AD88 /* q2aViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD8F49A223FF5A30073AD88 /* q2aViewController.swift */; };
 		CE66800921FF64420074CC94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66800821FF64420074CC94 /* AppDelegate.swift */; };
 		CE66800B21FF64420074CC94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE66800A21FF64420074CC94 /* ViewController.swift */; };
@@ -18,6 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DC88F0122410F6900385253 /* q3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q3ViewController.swift; sourceTree = "<group>"; };
+		1DC88F03224116DE00385253 /* endViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endViewController.swift; sourceTree = "<group>"; };
+		1DC88F0522411F6800385253 /* dataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataStruct.swift; sourceTree = "<group>"; };
+		1DC88F072241206F00385253 /* q2bViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q2bViewController.swift; sourceTree = "<group>"; };
+		1DC88F092241208900385253 /* q1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q1ViewController.swift; sourceTree = "<group>"; };
+		1DC88F0B224120B700385253 /* startViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startViewController.swift; sourceTree = "<group>"; };
 		1DD8F49A223FF5A30073AD88 /* q2aViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q2aViewController.swift; sourceTree = "<group>"; };
 		CE66800521FF64420074CC94 /* SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE66800821FF64420074CC94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +81,12 @@
 				CE66800F21FF64420074CC94 /* SurveyApp.xcdatamodeld */,
 				CE66801D21FF67070074CC94 /* SurveyViewController.swift */,
 				1DD8F49A223FF5A30073AD88 /* q2aViewController.swift */,
+				1DC88F0122410F6900385253 /* q3ViewController.swift */,
+				1DC88F03224116DE00385253 /* endViewController.swift */,
+				1DC88F0522411F6800385253 /* dataStruct.swift */,
+				1DC88F072241206F00385253 /* q2bViewController.swift */,
+				1DC88F092241208900385253 /* q1ViewController.swift */,
+				1DC88F0B224120B700385253 /* startViewController.swift */,
 			);
 			path = SurveyApp;
 			sourceTree = "<group>";
@@ -144,11 +162,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DC88F0A2241208900385253 /* q1ViewController.swift in Sources */,
 				CE66800B21FF64420074CC94 /* ViewController.swift in Sources */,
 				CE66801121FF64420074CC94 /* SurveyApp.xcdatamodeld in Sources */,
+				1DC88F0622411F6800385253 /* dataStruct.swift in Sources */,
+				1DC88F0222410F6900385253 /* q3ViewController.swift in Sources */,
 				CE66801E21FF67070074CC94 /* SurveyViewController.swift in Sources */,
 				1DD8F49B223FF5A30073AD88 /* q2aViewController.swift in Sources */,
+				1DC88F0C224120B700385253 /* startViewController.swift in Sources */,
+				1DC88F082241206F00385253 /* q2bViewController.swift in Sources */,
 				CE66800921FF64420074CC94 /* AppDelegate.swift in Sources */,
+				1DC88F04224116DE00385253 /* endViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
