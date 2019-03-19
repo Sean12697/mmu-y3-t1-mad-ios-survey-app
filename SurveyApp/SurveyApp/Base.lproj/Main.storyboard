@@ -223,8 +223,8 @@
                         <viewLayoutGuide key="safeArea" id="vTm-wI-Gi9"/>
                     </view>
                     <connections>
-                        <outlet property="btnNo" destination="wZ3-GO-lpi" id="GrS-Lr-oWa"/>
-                        <outlet property="btnYes" destination="lNr-Jh-gck" id="R4t-g2-aOA"/>
+                        <outlet property="btnNo" destination="wZ3-GO-lpi" id="INE-iK-T1R"/>
+                        <outlet property="btnYes" destination="lNr-Jh-gck" id="wBT-gu-mWN"/>
                         <segue destination="udK-Hc-wmN" kind="show" identifier="q3-end" id="xEw-13-sQv"/>
                     </connections>
                 </viewController>
@@ -273,7 +273,7 @@
                         <viewLayoutGuide key="safeArea" id="m6n-Sj-XIu"/>
                     </view>
                     <connections>
-                        <outlet property="txtTest" destination="XHl-fa-sv8" id="XZY-8V-Vw0"/>
+                        <outlet property="txtTest" destination="XHl-fa-sv8" id="dJn-pg-e01"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qo2-ge-uO2" userLabel="First Responder" sceneMemberID="firstResponder"/>

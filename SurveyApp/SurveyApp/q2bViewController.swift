@@ -20,7 +20,7 @@ class q2bViewController: UIViewController {
     
     @IBAction func btnNext(_ sender: UIButton) {
         // Stuff
-        self.performSegue(withIdentifier: "q2a-q3", sender: self)
+        self.performSegue(withIdentifier: "q2b-q3", sender: self)
     }
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){

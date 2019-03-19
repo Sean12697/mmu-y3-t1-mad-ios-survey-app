@@ -11,6 +11,8 @@ import UIKit
 class q3ViewController: UIViewController {
 
     var data:dataStruct?
+    @IBOutlet weak var btnYes: UIButton!
+    @IBOutlet weak var btnNo: UIButton!
     
     @IBAction func btnClick(_ sender: UIButton) {
         

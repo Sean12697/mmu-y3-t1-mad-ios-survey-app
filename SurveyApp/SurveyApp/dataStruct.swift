@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct dataStruct {
+struct dataStruct : Codable {
     var id:String?
     var dob:Date?
     var q1:Bool?
