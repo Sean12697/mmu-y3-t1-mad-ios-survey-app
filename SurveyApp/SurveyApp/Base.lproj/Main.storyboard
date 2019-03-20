@@ -328,13 +328,23 @@
                     <view key="view" contentMode="scaleToFill" id="w3C-wL-xTc">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jsj-p3-UfK">
+                                <rect key="frame" x="0.0" y="70" width="1024" height="698"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Csj-Xh-7ZB"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Jsj-p3-UfK" id="hAs-fI-TPK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFs-9T-MRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2872" y="652"/>
+            <point key="canvasLocation" x="2871.6796875" y="651.5625"/>
         </scene>
         <!--2b View Controller-->
         <scene sceneID="xiR-Pg-Vts">

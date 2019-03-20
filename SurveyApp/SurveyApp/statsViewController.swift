@@ -7,16 +7,37 @@
 //
 
 import UIKit
+import CoreData
 
-class statsViewController: UIViewController {
+class statsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var dataArr : [String] = [];
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        dataArr = getData()
     }
     
-
+    func getData() -> [String] {
+        var data : [String] = [];
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return [""] }
+        let managedContext = appDelegate.persistentContainer.viewContext;
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Data")
+        
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            for item in result as! [NSManagedObject] {
+                data.append(item.value(forKey: "id") as! String);
+                // item.value(forKey: "id") as? String
+            }
+        } catch {
+            print("Failed");
+        }
+        
+        return data;
+    }
+    
     /*
     // MARK: - Navigation
 
