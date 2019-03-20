@@ -293,6 +293,9 @@
                                 <rect key="frame" x="619" y="660" width="76" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Enter"/>
+                                <connections>
+                                    <action selector="btnClick:" destination="udK-Hc-wmN" eventType="touchUpInside" id="1Hf-Vf-0Lv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxW-Cr-YVn">
                                 <rect key="frame" x="468" y="433" width="89" height="54"/>

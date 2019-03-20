@@ -15,4 +15,6 @@ struct dataStruct : Codable {
     var q2a:String? = "NaN";
     var q2b:Int? = 2;
     var q3:Bool? = true;
+    var lat:Float? = 0.0;
+    var long:Float? = 0.0;
 }
