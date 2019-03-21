@@ -55,6 +55,15 @@
                                     <action selector="btnNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jZj-vV-Ctm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELe-li-e12">
+                                <rect key="frame" x="926" y="70" width="78" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <state key="normal" title="Stats"/>
+                                <connections>
+                                    <action selector="statsClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8ok-VX-uXn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -64,6 +73,7 @@
                         <outlet property="date" destination="Zr0-4X-fDS" id="R6w-NY-UG9"/>
                         <outlet property="txtID" destination="NFk-0h-XEe" id="qQH-6E-b9l"/>
                         <segue destination="M0B-Et-pjs" kind="show" identifier="start-q1" id="5fJ-Lk-JfX"/>
+                        <segue destination="gRO-gm-jaY" kind="show" identifier="start-stats" id="z3j-o4-qlV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -339,7 +349,7 @@
                         <viewLayoutGuide key="safeArea" id="Csj-Xh-7ZB"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="Jsj-p3-UfK" id="hAs-fI-TPK"/>
+                        <outlet property="dataTable" destination="Jsj-p3-UfK" id="W8F-gh-TEK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFs-9T-MRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -456,6 +466,7 @@
         <image name="work_selected" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="z3j-o4-qlV"/>
         <segue reference="aNQ-bQ-47s"/>
     </inferredMetricsTieBreakers>
 </document>

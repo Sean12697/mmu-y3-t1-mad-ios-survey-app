@@ -35,6 +35,11 @@ class startViewController: UIViewController {
         
     }
     
+    
+    @IBAction func statsClick(_ sender: Any) {
+        self.performSegue(withIdentifier: "start-stats", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 
