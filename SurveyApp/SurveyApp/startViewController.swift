@@ -13,11 +13,20 @@ class startViewController: UIViewController {
     var data:dataStruct? = dataStruct();
     @IBOutlet weak var txtID: UITextField!
     @IBOutlet weak var date: UIDatePicker!
+    let alert = UIAlertController(title: "Access Results", message: "Please enter the super secure password: ", preferredStyle: .alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        alert.addTextField { (textField) in
+            textField.text = "password"
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            if (textField.text == "Password1") {
+                self.performSegue(withIdentifier: "start-stats", sender: self);
+            }
+        }))
     }
     
     @IBAction func btnNext(_ sender: UIButton) {
@@ -36,7 +45,7 @@ class startViewController: UIViewController {
     }
     
     @IBAction func statsClick(_ sender: Any) {
-        self.performSegue(withIdentifier: "start-stats", sender: self)
+        self.present(alert, animated: true, completion: nil)
     }
     
     /*
