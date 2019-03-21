@@ -12,6 +12,7 @@ import CoreData
 class statsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
     var dataArr : [String] = [];
+    let diff : [String] = ["Very Easy", "Easy", "Okay", "Difficult", "Very Hard"];
     let simpleTableIdentifier = "SimpleTableIdentifier"
     @IBOutlet weak var dataTable: UITableView!
     
@@ -33,7 +34,10 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
             for item in result as! [NSManagedObject] {
                 let id:String = item.value(forKey: "id") as! String;
                 let age:String = String(getAge(birthday: item.value(forKey: "dob") as! Date))
-                data.append("\(id) - Age: \(age)");
+                let used:Bool = item.value(forKey: "q1") as! Bool;
+                let usedString:String = (used) ? "Uses iPads for \(item.value(forKey: "q2a") as! String)" : "Finds iPads \(diff[item.value(forKey: "q2b") as! Int]) to use";
+                let consider:String = (item.value(forKey: "q3") as! Bool) ? "will" : "won't";
+                data.append("\(id) - Age: \(age), \(usedString) and \(consider) consider using an iPad again in the future");
                 // item.value(forKey: "id") as? String
             }
         } catch {
