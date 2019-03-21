@@ -30,7 +30,7 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBAction func sendEmailClick(_ sender: Any) {
         print(csvText)
-        sendEmail()
+        sendFile()
     }
     
     func getData() -> [String] {
@@ -50,7 +50,7 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 let consider:String = (item.value(forKey: "q3") as! Bool) ? "will" : "won't";
                 data.append("\(id) - Age: \(age), \(usedString) and \(consider) consider using an iPad again in the future");
                 // For CSV
-                let newLine = "\(id),\(age),\(used),\(used ? item.value(forKey: "q2a") as! String : diff[item.value(forKey: "q2b") as! Int]),\(item.value(forKey: "q3") as! Bool)\n"
+                let newLine = "\(id),\(age),\(used),\(used ? item.value(forKey: "q2a") as! String : diff[item.value(forKey: "q2b") as! Int]),\(item.value(forKey: "q3") as! Bool),\(String(item.value(forKey: "lat") as! Float)),\(String(item.value(forKey: "long") as! Float))\n"
                 csvText += newLine
             }
         } catch {
@@ -60,48 +60,33 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
         return data;
     }
     
-    func sendEmail() {
+    func sendFile() {
         do {
-        try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
-        if MFMailComposeViewController.canSendMail() {
-            let mailComposer = MFMailComposeViewController()
-            mailComposer.setSubject("Survey Result Export")
-            mailComposer.setMessageBody("Hi,\n\nAttached is the .csv exports of the results from the questionaire.", isHTML: false)
-//            mailComposer.addAttachmentData(Data(context: NSData(contentsOfURL: path!)), mimeType: "text/csv", fileName: fileName)
-            mailComposer.mailComposeDelegate = (self as! MFMailComposeViewControllerDelegate)
-            self.present(mailComposer, animated: true
-                , completion: nil)
-        } else {
-            print("Email is not configured in settings app or we are not able to send an email")
-        }
+            try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+            let vc = UIActivityViewController(activityItems: [path as Any], applicationActivities: [])
+            present(vc, animated: true, completion: nil)
         } catch {
             print("Failed to create file")
             print("\(error)")
         }
+    }
+    
+//    func sendEmail() {
 //        do {
-//            try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+//        try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+//            let email = "your email here"
+//            let fileURL = URL(fileURLWithPath: path!)
 //
+//            let sharingService = NSSharingService(named: NSSharingServiceNameComposeEmail)
+//            sharingService?.recipients = [email] //could be more than one
+//            sharingService?.subject = "subject"
+//            let items: [Any] = ["see attachment", fileURL] //the interesting part, here you add body text as well as URL for the document you'd like to share
 //
-//
-////            if mailComposeController.canSendMail() {
-////                let emailController = mailComposeController()
-////                emailController.mailComposeDelegate = self
-////                emailController.setToRecipients([])
-////                emailController.setSubject("Survey Result Export")
-////                emailController.setMessageBody("Hi,\n\nAttached is the .csv exports of the results from the questionaire.", isHTML: false)
-////
-////                emailController.addAttachmentData(NSData(contentsOfURL: path)!, mimeType: "text/csv", fileName: fileName)
-////                presentViewController(emailController, animated: true, completion: nil)
-////            }
-//
+//            sharingService?.perform(withItems: items)
 //        } catch {
 //            print("Failed to create file")
 //            print("\(error)")
 //        }
-    }
-    
-//    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-//        controller.dismissViewControllerAnimated(true, completion: nil)
 //    }
     
     func getAge(birthday: Date) -> Int {
