@@ -43,6 +43,7 @@ class endViewController: UIViewController {
         let userData = NSManagedObject(entity: userEntity!, insertInto: managedContext);
         
         userData.setValue(data!.id, forKeyPath: "id");
+        userData.setValue(data!.dob, forKey: "dob");
         userData.setValue(data!.q1, forKey: "q1");
         userData.setValue(data!.q2a, forKey: "q2a");
         userData.setValue(data!.q2b, forKey: "q2b");

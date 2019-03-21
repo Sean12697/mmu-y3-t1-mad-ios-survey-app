@@ -31,7 +31,9 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
         do {
             let result = try managedContext.fetch(fetchRequest)
             for item in result as! [NSManagedObject] {
-                data.append(item.value(forKey: "id") as! String);
+                let id:String = item.value(forKey: "id") as! String;
+                let age:String = String(getAge(birthday: item.value(forKey: "dob") as! Date))
+                data.append("\(id) - Age: \(age)");
                 // item.value(forKey: "id") as? String
             }
         } catch {
@@ -39,6 +41,13 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         
         return data;
+    }
+    
+    func getAge(birthday: Date) -> Int {
+        let now = Date()
+        let calendar = Calendar.current
+        let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
+        return ageComponents.year!
     }
     
     /*
@@ -73,31 +82,5 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell?.textLabel?.text = dataArr[indexPath.row]
         return cell!
     }
-    
-    // MARK:-
-    // MARK: Table View delegate Methods
-//    func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
-//        return indexPath.row % 4
-//    }
-//
-//    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-//        return indexPath.row == 0 ? nil : indexPath
-//    }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let rowValue = dataArr[indexPath.row]
-//        let message = "You selected \(rowValue)"
-//
-//        let controller = UIAlertController(title: "Row Selected",
-//                                           message: message, preferredStyle: .alert)
-//        let action = UIAlertAction(title: "Yes I Did",
-//                                   style: .default, handler: nil)
-//        controller.addAction(action)
-//        present(controller, animated: true, completion: nil)
-//    }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return indexPath.row == 0 ? 120 : 70
-//    }
 
 }
