@@ -13,10 +13,16 @@ class q2bViewController: UIViewController {
     var data:dataStruct?
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var btnNext: UIButton!
+    let refreshAlert = UIAlertController(title: "Confirm", message: "Are you happy with your answer?", preferredStyle: UIAlertController.Style.alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            self.performSegue(withIdentifier: "q2b-q3", sender: self)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "No", style: .cancel))
     }
     
     @IBAction func sliderChange(_ sender: UISlider) {
@@ -26,7 +32,7 @@ class q2bViewController: UIViewController {
     
     @IBAction func btnNext(_ sender: UIButton) {
         data?.q2b = Int(slider.value);
-        self.performSegue(withIdentifier: "q2b-q3", sender: self)
+        present(refreshAlert, animated: true, completion: nil)
     }
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){

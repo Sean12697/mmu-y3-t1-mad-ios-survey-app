@@ -12,6 +12,7 @@ class q1ViewController: UIViewController {
     
     var data:dataStruct?
     var segueString:String = "";
+    let refreshAlert = UIAlertController(title: "Confirm", message: "Are you happy with your answer?", preferredStyle: UIAlertController.Style.alert)
     
     @IBAction func btnClick(_ sender: UIButton) {
         
@@ -25,14 +26,18 @@ class q1ViewController: UIViewController {
             default: print("no selection")
         }
         
-        self.performSegue(withIdentifier: segueString, sender: self)
+        present(refreshAlert, animated: true, completion: nil)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            self.performSegue(withIdentifier: self.segueString, sender: self)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "No", style: .cancel))
     }
     
     

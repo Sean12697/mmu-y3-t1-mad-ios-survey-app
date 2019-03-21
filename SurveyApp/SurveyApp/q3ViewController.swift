@@ -13,6 +13,7 @@ class q3ViewController: UIViewController {
     var data:dataStruct?
     @IBOutlet weak var btnYes: UIButton!
     @IBOutlet weak var btnNo: UIButton!
+    let refreshAlert = UIAlertController(title: "Confirm", message: "Are you happy with your answer?", preferredStyle: UIAlertController.Style.alert)
     
     @IBAction func btnClick(_ sender: UIButton) {
         
@@ -22,13 +23,18 @@ class q3ViewController: UIViewController {
             default: print("no selection")
         }
         
-        self.performSegue(withIdentifier: "q3-end", sender: self)
+        present(refreshAlert, animated: true, completion: nil)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            self.performSegue(withIdentifier: "q3-end", sender: self)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "No", style: .cancel))
     }
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){

@@ -17,11 +17,17 @@ class q2aViewController: UIViewController {
     @IBOutlet weak var btnSocial: UIButton!
     @IBOutlet weak var btnOther: UIButton!
     @IBOutlet weak var btnNext: UIButton!
+    let refreshAlert = UIAlertController(title: "Confirm", message: "Are you happy with your answer?", preferredStyle: UIAlertController.Style.alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         btnNext.isEnabled = false;
-        // Do any additional setup after loading the view.
+        
+        refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            self.performSegue(withIdentifier: "q2a-q3", sender: self)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "No", style: .cancel))
     }
     
     @IBAction func btnClick(_ sender: UIButton) {
@@ -56,8 +62,7 @@ class q2aViewController: UIViewController {
     }
     
     @IBAction func btnNext(_ sender: UIButton) {
-        // Stuff
-        self.performSegue(withIdentifier: "q2a-q3", sender: self)
+        present(refreshAlert, animated: true, completion: nil)
     }
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
