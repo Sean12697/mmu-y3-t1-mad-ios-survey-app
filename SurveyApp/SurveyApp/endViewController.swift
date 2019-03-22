@@ -71,7 +71,6 @@ class endViewController: UIViewController, CLLocationManagerDelegate {
         if let currentLocation = locations.last {
             data?.lat = currentLocation.coordinate.latitude;
             data?.long = currentLocation.coordinate.longitude;
-            saveData();
 //            latitudeLabel.text = "\(currentLocation.coordinate.latitude)"
 //            longitudeLabel.text = "\(currentLocation.coordinate.longitude)"
         }

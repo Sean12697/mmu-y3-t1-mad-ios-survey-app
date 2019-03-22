@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import MessageUI
 
-class statsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class statsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate {
 
     var dataArr : [String] = [];
     let diff : [String] = ["Very Easy", "Easy", "Okay", "Difficult", "Very Hard"];
@@ -30,6 +30,7 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBAction func sendEmailClick(_ sender: Any) {
         print(csvText)
+        sendEmail()
 //        sendFile()
     }
     
@@ -50,7 +51,7 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 let consider:String = (item.value(forKey: "q3") as! Bool) ? "will" : "won't";
                 data.append("\(id) - Age: \(age), \(usedString) and \(consider) consider using an iPad again in the future");
                 // For CSV
-                let newLine = "\(id),\(age),\(used),\(used ? item.value(forKey: "q2a") as! String : diff[item.value(forKey: "q2b") as! Int]),\(item.value(forKey: "q3") as! Bool),\(String(item.value(forKey: "lat") as! Float)),\(String(item.value(forKey: "long") as! Float))\n"
+                let newLine = "\(id),\(age),\(used),\(used ? item.value(forKey: "q2a") as! String : diff[item.value(forKey: "q2b") as! Int]),\(item.value(forKey: "q3") as! Bool),\(String(item.value(forKey: "lat") as! Double)),\(String(item.value(forKey: "long") as! Double))\n"
                 csvText += newLine
             }
         } catch {
@@ -60,34 +61,24 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
         return data;
     }
     
-    func sendFile() {
-        do {
-            try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
-            let vc = UIActivityViewController(activityItems: [path as Any], applicationActivities: [])
-            present(vc, animated: true, completion: nil)
-        } catch {
-            print("Failed to create file")
-            print("\(error)")
+    func sendEmail() {
+        //Email Functions
+        func configuredMailComposeViewController() -> MFMailComposeViewController {
+            let mailComposerVC = MFMailComposeViewController()
+            mailComposerVC.mailComposeDelegate = self
+            mailComposerVC.setSubject("CSV File Export")
+            mailComposerVC.setMessageBody("", isHTML: false)
+            mailComposerVC.addAttachmentData(csvText.data(using: .utf8)!, mimeType: "text/csv", fileName: fileName)
+            
+            return mailComposerVC
+        }
+        
+        // Compose Email
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
         }
     }
-    
-//    func sendEmail() {
-//        do {
-//        try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
-//            let email = "your email here"
-//            let fileURL = URL(fileURLWithPath: path!)
-//
-//            let sharingService = NSSharingService(named: NSSharingServiceNameComposeEmail)
-//            sharingService?.recipients = [email] //could be more than one
-//            sharingService?.subject = "subject"
-//            let items: [Any] = ["see attachment", fileURL] //the interesting part, here you add body text as well as URL for the document you'd like to share
-//
-//            sharingService?.perform(withItems: items)
-//        } catch {
-//            print("Failed to create file")
-//            print("\(error)")
-//        }
-//    }
     
     func getAge(birthday: Date) -> Int {
         let now = Date()
