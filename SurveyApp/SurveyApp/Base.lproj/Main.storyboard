@@ -313,6 +313,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="Finish"/>
                                 <connections>
+                                    <action selector="finishClick:" destination="udK-Hc-wmN" eventType="touchUpInside" id="HUs-Ak-5sY"/>
                                     <segue destination="rqI-Gq-mxU" kind="unwind" unwindAction="rewindWithUnwindSegue:" id="I4j-PQ-yT1"/>
                                 </connections>
                             </button>

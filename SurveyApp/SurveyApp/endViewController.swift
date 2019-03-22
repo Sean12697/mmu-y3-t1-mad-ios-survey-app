@@ -27,12 +27,13 @@ class endViewController: UIViewController, CLLocationManagerDelegate {
         } catch { print(error) }
         
         let status = CLLocationManager.authorizationStatus()
+        print(status)
+        
         switch status {
         // 1
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
             return
-            
         // 2
         case .denied, .restricted:
             let alert = UIAlertController(title: "Location Services disabled", message: "Please enable Location Services in Settings", preferredStyle: .alert)
@@ -47,11 +48,15 @@ class endViewController: UIViewController, CLLocationManagerDelegate {
         
         // 4
         locationManager.delegate = self
-        locationManager.startUpdatingLocation()
+        locationManager.requestLocation()
             
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func finishClick(_ sender: Any) {
         saveData();
     }
+    
     
     @IBAction func btnClick(_ sender: UIButton) {
         if (txtPassword.text == "Password1") {
@@ -66,6 +71,7 @@ class endViewController: UIViewController, CLLocationManagerDelegate {
         if let currentLocation = locations.last {
             data?.lat = currentLocation.coordinate.latitude;
             data?.long = currentLocation.coordinate.longitude;
+            saveData();
 //            latitudeLabel.text = "\(currentLocation.coordinate.latitude)"
 //            longitudeLabel.text = "\(currentLocation.coordinate.longitude)"
         }
