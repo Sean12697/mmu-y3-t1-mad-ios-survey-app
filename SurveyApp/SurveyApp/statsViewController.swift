@@ -17,8 +17,6 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
     let simpleTableIdentifier = "SimpleTableIdentifier"
     @IBOutlet weak var dataTable: UITableView!
     // For CSV
-    let fileName = "Exports.csv"
-    let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("Exports.csv")
     var csvText = "ID,Age,Q1,Q2,Q3,Lat,Long\n"
     
     override func viewDidLoad() {
@@ -31,7 +29,6 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func sendEmailClick(_ sender: Any) {
         print(csvText)
         sendEmail()
-//        sendFile()
     }
     
     func getData() -> [String] {
@@ -66,9 +63,9 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
         func configuredMailComposeViewController() -> MFMailComposeViewController {
             let mailComposerVC = MFMailComposeViewController()
             mailComposerVC.mailComposeDelegate = self
-            mailComposerVC.setSubject("CSV File Export")
+            mailComposerVC.setSubject("CSV Questionaire File Export")
             mailComposerVC.setMessageBody("", isHTML: false)
-            mailComposerVC.addAttachmentData(csvText.data(using: .utf8)!, mimeType: "text/csv", fileName: fileName)
+            mailComposerVC.addAttachmentData(csvText.data(using: .utf8)!, mimeType: "text/csv", fileName: "Exports.csv")
             
             return mailComposerVC
         }
@@ -87,16 +84,6 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
         return ageComponents.year!
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -104,7 +91,6 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // MARK:-
     // MARK: Table View Data Source Methods
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArr.count
     }

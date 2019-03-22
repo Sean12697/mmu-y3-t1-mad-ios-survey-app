@@ -31,7 +31,8 @@ class q2aViewController: UIViewController {
     }
     
     @IBAction func btnClick(_ sender: UIButton) {
-        btnNext.isEnabled = true;
+        btnNext.isEnabled = true; // Once the user has selected an option then they can proceed
+
         switch sender.tag {
         case 0:
             data?.q2a = "Work";
@@ -52,6 +53,7 @@ class q2aViewController: UIViewController {
         }
     }
     
+    // Switching to the selected version of the image used on the button
     func selectAllExecept(_ execept: UIButton) {
         btnWork.isSelected = false;
         btnGaming.isSelected = false;
@@ -69,15 +71,5 @@ class q2aViewController: UIViewController {
         guard let destination = segue.destination as? q3ViewController else {return}
         destination.data = self.data;
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

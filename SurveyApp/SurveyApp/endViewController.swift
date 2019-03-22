@@ -13,28 +13,19 @@ import CoreData
 class endViewController: UIViewController, CLLocationManagerDelegate {
     
     var data:dataStruct?
-    let locationManager = CLLocationManager()
+    let locationManager = CLLocationManager() // Needed for location
     @IBOutlet weak var txtTest: UILabel!
     @IBOutlet weak var txtPassword: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        do {
-            let jsonData = try JSONEncoder().encode([data])
-            let jsonString = String(data: jsonData, encoding: .utf8)!
-            print(jsonString)
-        } catch { print(error) }
-        
         let status = CLLocationManager.authorizationStatus()
-        print(status)
         
         switch status {
-        // 1
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
             return
-        // 2
         case .denied, .restricted:
             let alert = UIAlertController(title: "Location Services disabled", message: "Please enable Location Services in Settings", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -43,14 +34,12 @@ class endViewController: UIViewController, CLLocationManagerDelegate {
             present(alert, animated: true, completion: nil)
             return
         case .authorizedAlways, .authorizedWhenInUse:
-            break
+            break // If accessed allowed
         }
         
-        // 4
+        // Request Access to Location
         locationManager.delegate = self
         locationManager.requestLocation()
-            
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func finishClick(_ sender: Any) {
@@ -71,12 +60,9 @@ class endViewController: UIViewController, CLLocationManagerDelegate {
         if let currentLocation = locations.last {
             data?.lat = currentLocation.coordinate.latitude;
             data?.long = currentLocation.coordinate.longitude;
-//            latitudeLabel.text = "\(currentLocation.coordinate.latitude)"
-//            longitudeLabel.text = "\(currentLocation.coordinate.longitude)"
         }
     }
     
-    // 2 Print Error
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
@@ -87,6 +73,7 @@ class endViewController: UIViewController, CLLocationManagerDelegate {
         let userEntity = NSEntityDescription.entity(forEntityName: "Data", in: managedContext);
         let userData = NSManagedObject(entity: userEntity!, insertInto: managedContext);
         
+        // Setting all the values need of the entity
         userData.setValue(data!.id, forKeyPath: "id");
         userData.setValue(data!.dob, forKey: "dob");
         userData.setValue(data!.q1, forKey: "q1");
@@ -96,27 +83,11 @@ class endViewController: UIViewController, CLLocationManagerDelegate {
         userData.setValue(data!.lat, forKey: "lat");
         userData.setValue(data!.long, forKey: "long");
         
-        do {
+        do { // saving the entity
             try managedContext.save();
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)");
         }
     }
-    
-//    override func prepare(for segue:UIStoryboardSegue, sender: Any?){
-//        guard let destination = segue.destination as? statsViewController else {return}
-//        // destination.data = self.data
-//    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

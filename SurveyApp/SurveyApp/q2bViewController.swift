@@ -25,10 +25,10 @@ class q2bViewController: UIViewController {
         refreshAlert.addAction(UIAlertAction(title: "No", style: .cancel))
     }
     
+    // Snaps to the nearest value
     @IBAction func sliderChange(_ sender: UISlider) {
         sender.setValue(sender.value.rounded(), animated: false)
     }
-    
     
     @IBAction func btnNext(_ sender: UIButton) {
         data?.q2b = Int(slider.value);
@@ -39,16 +39,5 @@ class q2bViewController: UIViewController {
         guard let destination = segue.destination as? q3ViewController else {return}
         destination.data = self.data;
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

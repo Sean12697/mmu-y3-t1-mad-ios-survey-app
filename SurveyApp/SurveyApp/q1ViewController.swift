@@ -12,10 +12,12 @@ class q1ViewController: UIViewController {
     
     var data:dataStruct?
     var segueString:String = "";
+    // Adanced feature
     let refreshAlert = UIAlertController(title: "Confirm", message: "Are you happy with your answer?", preferredStyle: UIAlertController.Style.alert)
     
     @IBAction func btnClick(_ sender: UIButton) {
         
+        // Depending on which button the user enters, it will perform different segues
         switch sender.tag {
             case 0:
                 data?.q1=false;
@@ -52,15 +54,5 @@ class q1ViewController: UIViewController {
             default: print("error")
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
