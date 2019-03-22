@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 import CoreData
 
-class endViewController: UIViewController {
+class endViewController: UIViewController, CLLocationManagerDelegate {
     
     var data:dataStruct?
+    let locationManager = CLLocationManager()
     @IBOutlet weak var txtTest: UILabel!
     @IBOutlet weak var txtPassword: UITextField!
     
@@ -23,6 +25,29 @@ class endViewController: UIViewController {
             let jsonString = String(data: jsonData, encoding: .utf8)!
             print(jsonString)
         } catch { print(error) }
+        
+        let status = CLLocationManager.authorizationStatus()
+        switch status {
+        // 1
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            return
+            
+        // 2
+        case .denied, .restricted:
+            let alert = UIAlertController(title: "Location Services disabled", message: "Please enable Location Services in Settings", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            
+            present(alert, animated: true, completion: nil)
+            return
+        case .authorizedAlways, .authorizedWhenInUse:
+            break
+        }
+        
+        // 4
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
             
         // Do any additional setup after loading the view.
         saveData();
@@ -34,6 +59,21 @@ class endViewController: UIViewController {
         } else {
             // Invalid input
         }
+    }
+    
+    // 1 Print location if available
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let currentLocation = locations.last {
+            data?.lat = currentLocation.coordinate.latitude;
+            data?.long = currentLocation.coordinate.longitude;
+//            latitudeLabel.text = "\(currentLocation.coordinate.latitude)"
+//            longitudeLabel.text = "\(currentLocation.coordinate.longitude)"
+        }
+    }
+    
+    // 2 Print Error
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
     
     func saveData() {

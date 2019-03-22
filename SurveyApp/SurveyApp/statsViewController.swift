@@ -30,7 +30,7 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBAction func sendEmailClick(_ sender: Any) {
         print(csvText)
-        sendFile()
+//        sendFile()
     }
     
     func getData() -> [String] {
