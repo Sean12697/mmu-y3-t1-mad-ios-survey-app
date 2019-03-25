@@ -48,7 +48,7 @@ class statsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 let consider:String = (item.value(forKey: "q3") as! Bool) ? "will" : "won't";
                 data.append("\(id) - Age: \(age), \(usedString) and \(consider) consider using an iPad again in the future");
                 // For CSV
-                let newLine = "'\(id)','\(item.value(forKey: "dob") as! Date)',\(used),'\(used ? item.value(forKey: "q2a") as! String : diff[item.value(forKey: "q2b") as! Int])',\(item.value(forKey: "q3") as! Bool),\(String(item.value(forKey: "lat") as! Double)),\(String(item.value(forKey: "long") as! Double))\n"
+                let newLine = "'\(id)','\(item.value(forKey: "dob") as! Date)',\(used),'\(used ? item.value(forKey: "q2a") as! String : String(item.value(forKey: "q2b") as! Int))',\(item.value(forKey: "q3") as! Bool),\(String(item.value(forKey: "lat") as! Double)),\(String(item.value(forKey: "long") as! Double))\n"
                 csvText += newLine
             }
         } catch {
